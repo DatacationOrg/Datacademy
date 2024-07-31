@@ -43,11 +43,7 @@ def get_customer_by_name(last_name: str) -> dict[str, str]:
     Returns:
         dict[str, str]: Customer details.
     """
-    for customer_id in customers:
-        if customers[customer_id]["last_name"] == last_name:
-            return customers[customer_id]
-
-    return {"Error": f"Customer with last name: '{last_name}' does not exists"}
+    ...
 
 
 # TODO: Create GET request with end point: "/get-customers/"
@@ -62,7 +58,7 @@ def get_customers(skip: int = 0, limit: int = 3) -> dict[int, dict[str, str]]:
     Returns:
         dict[int, dict[str, str]]: Dictionary of customer id to customer details.
     """
-    return {i: customers[i] for i in range(skip, min(skip + limit, len(customers)))}
+    ...
 
 
 """
@@ -107,10 +103,7 @@ def create_customer_auto_increment(first_name: str, last_name: str, address: str
     Returns:
         dict[str, str]: Customer details.
     """
-    customer_id = max(customers.keys()) + 1
-
-    customers[customer_id] = {"first_name": first_name, "last_name": last_name, "address": address}
-    return customers[customer_id]
+    ...
 
 
 """
@@ -149,13 +142,7 @@ def update_customer_address_by_name(first_name: str, last_name: str, address: st
     Returns:
         dict[str, str]: Customer details.
     """
-    for customer_id in customers:
-        if customers[customer_id]["first_name"] == first_name and customers[customer_id]["last_name"] == last_name:
-            customers[customer_id]["address"] = address
-
-            return customers[customer_id]
-
-    return {"Error": f"No customer named {first_name} {last_name} exists."}
+    ...
 
 
 """
@@ -192,9 +179,4 @@ def delete_customer_by_name(first_name: str, last_name: str) -> dict[str, str]:
     Returns:
         dict[str, str]: Customer details.
     """
-    for customer in customers:
-        if customers[customer]["first_name"] == first_name and customers[customer]["last_name"] == last_name:
-            del customers[customer]
-            return {"Message": f"Customer {first_name} {last_name} deleted successfully."}
-
-    return {"Error": "The customer you are trying to delete does not exist."}
+    ...
